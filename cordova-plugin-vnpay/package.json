@@ -1,0 +1,17 @@
+{
+  "name": "cordova-plugin-vnpay",
+  "version": "0.0.1",
+  "description": "cordova plugin vnpay",
+  "cordova": {
+    "id": "cordova-plugin-vnpay",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "cary",
+  "license": "ISC"
+}

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-vnpay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>VnpayPlugin</name>
+    <js-module name="VnpayPlugin" src="www/VnpayPlugin.js">
+        <clobbers target="vnpay" />
+    </js-module>
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VnpayPlugin">
+                <param name="android-package" value="com.apvisa.cordova.vnpay.VnpayPlugin"/>
+            </feature>
+        </config-file>
+         <config-file target="AndroidManifest.xml" parent="/*">
+		    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+			<uses-permission android:name="android.permission.READ_LOGS" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.SEND_SMS" />
+			<uses-permission android:name="android.permission.READ_SMS" />
+			<uses-permission android:name="android.permission.RECEIVE_SMS" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">           
+			<activity
+				android:name="com.apvisa.cordova.vnpay.VnpayActivity"
+				android:configChanges="keyboardHidden|orientation"    
+				android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+			</activity>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">           
+			<meta-data
+				android:name="APVISA_ACCESSKEY"
+				android:value="f5f4a41abc5520db65344402299059e3" >
+			</meta-data>
+        </config-file>
+		<source-file src="src/android/VnpayPlugin.java" target-dir="src/com/apvisa/cordova/vnpay"/>
+		<source-file src="src/android/VnpayActivity.java" target-dir="src/com/apvisa/cordova/vnpay"/>
+		<source-file src="src/android/R.java" target-dir="src/cn/com/apvisa/apvisamall"/>
+		<source-file src="src/android/BankFragment.java" target-dir="src/com/apvisa/pay"/>
+		<source-file src="src/android/CardFragment.java" target-dir="src/com/apvisa/pay"/>
+		<source-file src="src/android/MainAPPActivity.java" target-dir="src/com/apvisa/pay"/>
+		<source-file src="src/android/SMSFragment.java" target-dir="src/com/apvisa/pay"/>
+		<source-file src="src/android/adapter/AbsAdapterBase.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<source-file src="src/android/adapter/AbsImgAdapterBase.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<source-file src="src/android/adapter/BankTypeAdapter.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<source-file src="src/android/adapter/MyAbsAdapterBase.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<source-file src="src/android/adapter/PayMoneyAdapter.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<source-file src="src/android/adapter/SmsPayAdapter.java" target-dir="src/com/apvisa/pay/adapter"/>
+		<lib-file src="src/android/libs/apvisa.jar"/>
+		<resource-file src="src/android/res/layout/ap_appay_main.xml" target="res/layout/ap_appay_main.xml" />
+		<resource-file src="src/android/res/layout/ap_bank.xml" target="res/layout/ap_bank.xml" />
+		<resource-file src="src/android/res/layout/ap_card_money_list_item.xml" target="res/layout/ap_card_money_list_item.xml" />
+		<resource-file src="src/android/res/layout/ap_home.xml" target="res/layout/ap_home.xml" />
+		<resource-file src="src/android/res/layout/ap_item_card_type.xml" target="res/layout/ap_item_card_type.xml" />
+		<resource-file src="src/android/res/layout/ap_loading_foot.xml" target="res/layout/ap_loading_foot.xml" />
+		<resource-file src="src/android/res/layout/ap_main.xml" target="res/layout/ap_main.xml" />
+		<resource-file src="src/android/res/layout/ap_pay.xml" target="res/layout/ap_pay.xml" />
+		<resource-file src="src/android/res/layout/ap_sms_gridview_item.xml" target="res/layout/ap_sms_gridview_item.xml" />
+		<resource-file src="src/android/res/layout/ap_sms_money_item.xml" target="res/layout/ap_sms_money_item.xml" />
+		<resource-file src="src/android/res/layout/ap_smspay.xml" target="res/layout/ap_smspay.xml" />
+		<resource-file src="src/android/res/layout/ap_test.xml" target="res/layout/ap_test.xml" />
+		<resource-file src="src/android/res/drawable/ap_card_line.xml" target="res/drawable/ap_card_line.xml" />
+		<resource-file src="src/android/res/drawable/ap_login_btn_selector.xml" target="res/drawable/ap_login_btn_selector.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_bank_image.xml" target="res/drawable/ap_selector_bank_image.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_card_image.xml" target="res/drawable/ap_selector_card_image.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_imageview_background.xml" target="res/drawable/ap_selector_imageview_background.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_item_background.xml" target="res/drawable/ap_selector_item_background.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_mobifone_image.xml" target="res/drawable/ap_selector_mobifone_image.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_sms_image.xml" target="res/drawable/ap_selector_sms_image.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_smsgridview_item_background.xml" target="res/drawable/ap_selector_smsgridview_item_background.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_viettel_image.xml" target="res/drawable/ap_selector_viettel_image.xml" />
+		<resource-file src="src/android/res/drawable/ap_selector_vinaphone_image.xml" target="res/drawable/ap_selector_vinaphone_image.xml" />
+		<resource-file src="src/android/res/anim/loading_img_small.xml" target="res/anim/loading_img_small.xml" />
+		<resource-file src="src/android/res/drawable-hdpi/ap_sms_item_bg.png" target="res/drawable-hdpi/ap_sms_item_bg.png" />
+		<resource-file src="src/android/res/drawable-hdpi/ap_sms_item_bg_press.png" target="res/drawable-hdpi/ap_sms_item_bg_press.png" />
+		<resource-file src="src/android/res/drawable-hdpi/ap_spinner_1.png" target="res/drawable-hdpi/ap_spinner_1.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_bank.png" target="res/drawable-xhdpi/ap_bank.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_bank_bg.png" target="res/drawable-xhdpi/ap_bank_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_beijing.png" target="res/drawable-xhdpi/ap_beijing.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_bg.png" target="res/drawable-xhdpi/ap_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_button_03.png" target="res/drawable-xhdpi/ap_button_03.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_button_03_f.png" target="res/drawable-xhdpi/ap_button_03_f.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_cadr.png" target="res/drawable-xhdpi/ap_cadr.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_cadr_bg.png" target="res/drawable-xhdpi/ap_cadr_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_close.png" target="res/drawable-xhdpi/ap_close.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_edit_bg.png" target="res/drawable-xhdpi/ap_edit_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_gold.png" target="res/drawable-xhdpi/ap_gold.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_mobifone.png" target="res/drawable-xhdpi/ap_mobifone.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_mobifone_bg.png" target="res/drawable-xhdpi/ap_mobifone_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_sms.png" target="res/drawable-xhdpi/ap_sms.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_sms_bg.png" target="res/drawable-xhdpi/ap_sms_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_sms_item_bg.png" target="res/drawable-xhdpi/ap_sms_item_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_sms_item_bg_press.png" target="res/drawable-xhdpi/ap_sms_item_bg_press.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_sms_money_bg.png" target="res/drawable-xhdpi/ap_sms_money_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_viettel.png" target="res/drawable-xhdpi/ap_viettel.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_viettel_bg.png" target="res/drawable-xhdpi/ap_viettel_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_vinaphone.png" target="res/drawable-xhdpi/ap_vinaphone.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ap_vinaphone_bg.png" target="res/drawable-xhdpi/ap_vinaphone_bg.png" />
+		<resource-file src="src/android/res/drawable-xhdpi/ic_launcher.png" target="res/drawable-xhdpi/ic_launcher.png" />
+		<resource-file src="src/android/res/menu/main.xml" target="res/menu/main.xml" />
+		<resource-file src="src/android/res/values/color.xml" target="res/values/color.xml" />
+		<resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml" />
+		<config-file target="res/values/strings.xml" parent="/*">
+			<string name="action_settings">Settings</string>
+			<string name="hello_world">Hello world!</string>
+			<string name="bottom_tab_card">CARD</string>
+			<string name="bottom_tab_sms">SMS</string>
+			<string name="bottom_tab_bank">BANK</string>
+			<string name="bottom_tab_know">知道</string>
+			<string name="bottom_tab_wantknow">我想知道</string>
+			<string name="bottom_tab_my">我的</string>
+		</config-file>
+    </platform>
+</plugin>
